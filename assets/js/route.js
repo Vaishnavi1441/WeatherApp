@@ -1,6 +1,6 @@
 /**
  * @license MIT
  * @fileoverview Menage all routes
- * @copyright codewithsadee 2023 All rights reserved
- * @author codewithsadee <mohammadsadee24@gmail.com>
+ * @copyright vaishnavi 2023 All rights reserved
+ * @author vaishnavi <vaishnavirivankar14gmail.com>
  */

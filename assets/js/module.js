@@ -1,6 +1,6 @@
 /**
  * @license MIT
  * @fileoverview All module functions
- * @copyright codewithsadee 2023 All rights reserved
- * @author codewithsadee <mohammadsadee24@gmail.com>
+ * @copyright vaihsnavi 2023 All rights reserved
+ * @author vaishnavi <vaishnavirivankar14gmail.com>
  */

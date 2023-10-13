@@ -1,7 +1,5 @@
-weatherio
-weatherio is a weather app made by codewithsadee
-
-
+Weather-App
+Weather-App is a weather app made by vaishnavi
 
 #---------- HEADER ----------#
 
@@ -13,8 +11,14 @@ placeholder = Search city...
 
 <span class="m-icon">arrow_back</span>
 
-London
-GB
+<span class="m-icon">location_on</span>
+
+Goa
+state of Goa, GA
+
+<span class="m-icon icon">search</span>
+
+<span class="m-icon">my_location</span>
 
 Current Location
 

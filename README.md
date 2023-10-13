@@ -1,7 +1,7 @@
 
-# Weather App
+# Project Title
 
-Weather app using Weather API that shows weather of given cities
+A brief description of what this project does and who it's for
 
 ## Tech Stack
 
