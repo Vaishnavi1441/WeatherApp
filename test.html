@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <style>
+        /* CSS for the chessboard */
+        .chessboard {
+            display: grid;
+            grid-template-columns: repeat(8, 50px);
+            grid-template-rows: repeat(8, 50px);
+        }
+
+        .chessboard div {
+            width: 50px;
+            height: 50px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .white {
+            background-color: #f0d9b5;
+        }
+
+        .black {
+            background-color: #b58863;
+        }
+
+        /* CSS for the knight */
+        .knight {
+            font-size: 36px;
+        }
+    </style>
+</head>
+<body>
+    <div class="chessboard" id="chessboard"></div>
+
+    <script>
+        // JavaScript to create the chessboard and place the knight
+        const chessboard = document.getElementById("chessboard");
+        const boardSize = 8;
+
+        // Function to create the knight's move tree
+        function createKnightMoveTree(startX, startY) {
+            const possibleMoves = [
+                { dx: 1, dy: 2 },
+                { dx: 2, dy: 1 },
+                { dx: 2, dy: -1 },
+                { dx: 1, dy: -2 },
+                { dx: -1, dy: -2 },
+                { dx: -2, dy: -1 },
+                { dx: -2, dy: 1 },
+                { dx: -1, dy: 2 },
+            ];
+
+            const isOnBoard = (x, y) => x >= 0 && x < boardSize && y >= 0 && y < boardSize;
+
+            const generateMoves = (x, y, depth) => {
+                if (depth === 0) return [];
+                const moves = [];
+                for (const move of possibleMoves) {
+                    const newX = x + move.dx;
+                    const newY = y + move.dy;
+                    if (isOnBoard(newX, newY)) {
+                        moves.push({ x: newX, y: newY, children: generateMoves(newX, newY, depth - 1) });
+                    }
+                }
+                return moves;
+            };
+
+            return {
+                x: startX,
+                y: startY,
+                children: generateMoves(startX, startY, 2),
+            };
+        }
+
+        // Function to place the knight on the board at a specific position
+        function placeKnight(x, y) {
+            const knight = document.createElement("div");
+            knight.className = "knight";
+            knight.textContent = "♘"; // Unicode for knight symbol
+            chessboard.children[x + y * boardSize].appendChild(knight);
+        }
+
+        // Create the chessboard
+        const squares = new Array(boardSize * boardSize).fill(0).map((_, index) => index);
+        squares.forEach((index) => {
+            const square = document.createElement("div");
+            square.className = (Math.floor(index / boardSize) + index) % 2 === 0 ? "white" : "black";
+            chessboard.appendChild(square);
+        });
+
+        // Generate the knight's move tree
+        const knightMoveTree = createKnightMoveTree(0, 0);
+
+        // Breadth-First Search (BFS)
+        function bfs(node) {
+            const queue = [node];
+            while (queue.length > 0) {
+                const current = queue.shift();
+                placeKnight(current.x, current.y);
+                for (const child of current.children) {
+                    queue.push(child);
+                }
+            }
+        }
+
+        // Depth-First Search (DFS)
+        function dfs(node) {
+            placeKnight(node.x, node.y);
+            for (const child of node.children) {
+                dfs(child);
+            }
+        }
+
+        // Uncomment either bfs(knightMoveTree) or dfs(knightMoveTree) to explore the tree using BFS or DFS.
+        // bfs(knightMoveTree);
+        dfs(knightMoveTree);
+    </script>
+</body>
+</html>

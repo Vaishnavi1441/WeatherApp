@@ -1,11 +1,11 @@
 
-# Weather App
+# Project Title
 
-Weather App displays weather of entered city.
+A brief description of what this project does and who it's for
 
-## Languages Used
+## Tech Stack
 
-HTML,CSS,JAVASCRIPT, Weather APIs.
+**Client:** HTML, CSS, JavaScript, API
 
 ## Demo
 
