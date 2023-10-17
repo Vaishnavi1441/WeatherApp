@@ -1,11 +1,11 @@
 
 # Weather App
 
-A brief description of what this project does and who it's for
+Weather App displays weather of entered city.
 
-## Tech Stack
+## Languages Used
 
-**Client:** HTML, CSS, JavaScript, API
+HTML,CSS,JAVASCRIPT, Weather APIs.
 
 ## Demo
 
